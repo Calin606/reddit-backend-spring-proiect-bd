@@ -1,0 +1,26 @@
+create table categories (id number(19,0) generated as identity, name varchar2(30 char), primary key (id));
+
+INSERT into categories (name) VALUES ('Action');
+INSERT into categories (name) VALUES ('Adventure');
+INSERT into categories (name) VALUES ('Animation');
+INSERT into categories (name) VALUES ('Biography');
+INSERT into categories (name) VALUES ('Comedy');
+INSERT into categories (name) VALUES ('Crime');
+INSERT into categories (name) VALUES ('Documentary');
+INSERT into categories (name) VALUES ('Drama');
+INSERT into categories (name) VALUES ('Family');
+INSERT into categories (name) VALUES ('Fantasy');
+INSERT into categories (name) VALUES ('Film Noir');
+INSERT into categories (name) VALUES ('History');
+INSERT into categories (name) VALUES ('Horror');
+INSERT into categories (name) VALUES ('Music');
+INSERT into categories (name) VALUES ('Musical');
+INSERT into categories (name) VALUES ('Mystery');
+INSERT into categories (name) VALUES ('Romance');
+INSERT into categories (name) VALUES ('Sci-Fi');
+INSERT into categories (name) VALUES ('Short Film');
+INSERT into categories (name) VALUES ('Sport');
+INSERT into categories (name) VALUES ('Superhero');
+INSERT into categories (name) VALUES ('Thriller');
+INSERT into categories (name) VALUES ('War');
+INSERT into categories (name) VALUES ('Western');

@@ -1,0 +1,17 @@
+create table comments (id number(19,0) generated as identity, created_date timestamp, text varchar2(255 char), post_id number(19,0), user_id number(19,0), primary key (id));
+create table posts (post_id number(19,0) generated as identity, created_date timestamp, description clob, post_name varchar2(255 char), url varchar2(255 char), vote_count number(10,0), id number(19,0), user_id number(19,0), primary key (post_id));
+create table refresh_tokens (id number(19,0) generated as identity, created_date timestamp, token varchar2(255 char), primary key (id));
+create table subreddits (id number(19,0) generated as identity, created_date timestamp, description varchar2(255 char), name varchar2(255 char), user_user_id number(19,0), primary key (id));
+create table users (user_id number(19,0) generated as identity, created timestamp, email varchar2(255 char), enabled number(1,0) not null, password varchar2(255 char), username varchar2(255 char), primary key (user_id));
+create table verification_tokens (id number(19,0) generated as identity, expiring_date timestamp, token varchar2(255 char), user_user_id number(19,0), primary key (id));
+create table votes (vote_id number(19,0) generated as identity, vote_type number(10,0), post_id number(19,0) not null, user_id number(19,0), primary key (vote_id));
+alter table comments add constraint fk_comments_posts foreign key (post_id) references posts;
+alter table comments add constraint fk_comments_users foreign key (user_id) references users;
+alter table posts add constraint fk_posts_subreddits foreign key (id) references subreddits;
+alter table posts add constraint fk_posts_users foreign key (user_id) references users;
+alter table subreddits add constraint fk_subreddits_users foreign key (user_user_id) references users;
+alter table subreddits_posts add constraint fk_subreddits_posts_posts foreign key (posts_post_id) references posts;
+alter table subreddits_posts add constraint fk_subreddits_posts_subreddits foreign key (subreddit_id) references subreddits;
+alter table verification_tokens add constraint fk_verification_token_users foreign key (user_user_id) references users;
+alter table votes add constraint fk_votes_posts foreign key (post_id) references posts;
+alter table votes add constraint fk_votes_users foreign key (user_id) references users;
